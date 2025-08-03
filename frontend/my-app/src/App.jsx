@@ -22,6 +22,14 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: getAllRecipes,
       },
+      {
+        path: "/myrecipe",
+        element: <Home />,
+      },
+      {
+        path: "/myfav",
+        element: <Home />,
+      },
     ],
   },
 ]);

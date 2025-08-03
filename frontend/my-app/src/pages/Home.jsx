@@ -8,7 +8,6 @@ function Home() {
   return (
     <>
       <section className="flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-24 py-20 bg-green-50">
-        {/* Left Content */}
         <div className="max-w-xl text-center md:text-left space-y-6">
           <h1 className="text-5xl font-extrabold text-green-700">
             Food Recipe

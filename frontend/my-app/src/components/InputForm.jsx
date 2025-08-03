@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function InputForm({ setIsOpen }) {
+function InputForm({ setIsOpen, setIsLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSignUp, setisSignUp] = useState(false);
@@ -19,6 +19,7 @@ function InputForm({ setIsOpen }) {
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
+      setIsLoggedIn(true);
       setIsOpen(false);
     } catch (error) {
       setError(error.response?.data?.error || "Something went wrong");
