@@ -5,6 +5,7 @@ const {
   addRecipe,
   deleteRecipe,
   editRecipe,
+  upload,
 } = require("../controller/recipe");
 // const
 
@@ -14,7 +15,7 @@ const router = express.Router();
 // });
 router.get("/", getRecipes);
 router.get("/:id", getRecipe);
-router.post("/", addRecipe);
+router.post("/", upload.single("file"), addRecipe);
 
 router.put("/:id", editRecipe);
 router.delete("/:id", deleteRecipe);

@@ -3,8 +3,10 @@ import foodRecipe from "../assets/foodRecipe.png";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import RecipeItems from "../components/RecipeItems";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigation = useNavigate();
   return (
     <>
       <section className="flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-24 py-20 bg-green-50">
@@ -17,6 +19,9 @@ function Home() {
             snacks to full-course meals, all shared by food lovers like you.
           </p>
           <button
+            onClick={() => {
+              navigation("/addRecipe");
+            }}
             type="button"
             className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition duration-300"
           >
