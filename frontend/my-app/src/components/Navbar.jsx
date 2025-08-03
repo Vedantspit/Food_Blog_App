@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "./Modal";
+import InputForm from "./InputForm";
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const checkLogin = () => {
+    setIsOpen(true);
+  };
   return (
     <nav className="bg-green-200 border-b border-green-800 shadow-sm">
       <div className="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -23,12 +29,15 @@ function Navbar() {
               Favorites
             </a>
           </li>
-          <li>
-            <a href="#" className="hover:text-green-600 transition">
-              Login
-            </a>
+          <li onClick={checkLogin}>
+            <a className="hover:text-green-600 transition">Login</a>
           </li>
         </ul>
+        {isOpen && (
+          <Modal onClose={() => setIsOpen(false)}>
+            <InputForm setIsOpen={() => setIsOpen(false)} />
+          </Modal>
+        )}
       </div>
     </nav>
   );
