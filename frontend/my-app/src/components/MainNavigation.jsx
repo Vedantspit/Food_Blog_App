@@ -1,16 +1,22 @@
-import React from "react";
-import Navbar from "./Navbar";
+// MainNavigation.jsx
 import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { useEffect, useState } from "react";
 
-function MainNavigation() {
+export default function MainNavigation() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
+
   return (
     <>
-      <Navbar />
-      <Outlet />
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      <Outlet context={{ isLoggedIn, setIsLoggedIn }} />
       <Footer />
     </>
   );
 }
-
-export default MainNavigation;

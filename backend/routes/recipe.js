@@ -7,6 +7,7 @@ const {
   editRecipe,
   upload,
 } = require("../controller/recipe");
+const verifyToken = require("../middleware/auth");
 // const
 
 const router = express.Router();
@@ -15,7 +16,7 @@ const router = express.Router();
 // });
 router.get("/", getRecipes);
 router.get("/:id", getRecipe);
-router.post("/", upload.single("file"), addRecipe);
+router.post("/", upload.single("file"), verifyToken, addRecipe);
 
 router.put("/:id", editRecipe);
 router.delete("/:id", deleteRecipe);

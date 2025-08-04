@@ -27,8 +27,10 @@ const getRecipe = async (req, res) => {
 
 const addRecipe = async (req, res) => {
   const { title, ingredients, instructions, time } = req.body;
-  console.log("req.body:", req.body);
-  console.log("req.file:", req.file);
+  console.log("Im in add Recipe Function", req.user);
+
+  // console.log("req.body:", req.body);
+  // console.log("req.file:", req.file);
 
   if (!title || !ingredients || !instructions) {
     return res.status(400).json({ message: "Required fields cannot be empty" });
@@ -41,6 +43,7 @@ const addRecipe = async (req, res) => {
       instructions,
       time,
       coverImage: req.file.filename,
+      createdBy: req.user.id,
     });
     return res.status(201).json(newRecipe);
   } catch (error) {

@@ -31,6 +31,7 @@ export default function AddFoodRecipe() {
       await axios.post("http://localhost:5000/recipe", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: "Bearer " + localStorage.getItem("token"),
         },
       });
       navigate("/");

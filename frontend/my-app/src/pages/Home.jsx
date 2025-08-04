@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import foodRecipe from "../assets/foodRecipe.png";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import RecipeItems from "../components/RecipeItems";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, useOutletContext } from "react-router-dom";
+import Modal from "../components/Modal";
+import InputForm from "../components/InputForm";
 function Home() {
-  const navigation = useNavigate();
+  const { isLoggedIn, setIsLoggedIn } = useOutletContext();
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleProtectedRoute = (path) => {
+    if (isLoggedIn) {
+      navigate(path);
+    } else {
+      setIsOpen(true);
+    }
+  };
   return (
     <>
       <section className="flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-24 py-20 bg-green-50">
@@ -20,7 +31,7 @@ function Home() {
           </p>
           <button
             onClick={() => {
-              navigation("/addRecipe");
+              handleProtectedRoute("/addRecipe");
             }}
             type="button"
             className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition duration-300"
@@ -40,6 +51,16 @@ function Home() {
       </section>
 
       {/* Decorative Wave */}
+
+      {isOpen && (
+        <Modal onClose={() => setIsOpen(false)}>
+          <InputForm
+            setIsOpen={() => setIsOpen(false)}
+            setIsLoggedIn={setIsLoggedIn}
+          />
+        </Modal>
+      )}
+
       <div>
         <svg
           className="w-full"
@@ -54,7 +75,6 @@ function Home() {
         </svg>
       </div>
 
-      {/* Recipe Items Section */}
       <div className="px-6 md:px-24 py-12 bg-white">
         <RecipeItems />
       </div>

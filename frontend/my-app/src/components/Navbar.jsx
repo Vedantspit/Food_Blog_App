@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 import InputForm from "./InputForm";
 import { NavLink, useNavigate } from "react-router-dom";
-
-function Navbar() {
+function Navbar({ isLoggedIn, setIsLoggedIn }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user") ?? "null");
+
   const handleProtectedRoute = (path) => {
     if (isLoggedIn) {
       navigate(path);
@@ -14,13 +14,16 @@ function Navbar() {
       setIsOpen(true);
     }
   };
-  const checkLogin = () => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
-      setIsLoggedIn(false);
-      setIsOpen(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setIsLoggedIn(false);
+  };
+
+  const handleLoginClick = () => {
+    if (isLoggedIn) {
+      handleLogout();
     } else {
       setIsOpen(true);
     }
@@ -32,32 +35,50 @@ function Navbar() {
         <a href="/" className="text-2xl font-semibold text-gray-900">
           Food Blog
         </a>
-        <ul className="flex space-x-6 text-gray-800 text-sm font-medium">
-          <li className="hover:text-green-600 transition cursor-pointer">
-            Home
+        <ul className="flex space-x-6 text-sm font-medium items-center">
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `transition cursor-pointer ${
+                  isActive ? "text-green-600 font-semibold" : "text-gray-800"
+                }`
+              }
+            >
+              Home
+            </NavLink>
           </li>
-          <li
-            onClick={() => {
-              handleProtectedRoute("/myrecipe");
-            }}
-            className="hover:text-green-600 transition cursor-pointer"
-          >
-            My Recipes
+          <li>
+            <span
+              onClick={() => handleProtectedRoute("/myrecipe")}
+              className={`transition cursor-pointer ${
+                window.location.pathname === "/myrecipe"
+                  ? "text-green-600 font-semibold"
+                  : "text-gray-800"
+              }`}
+            >
+              My Recipes
+            </span>
           </li>
-          <li
-            onClick={() => {
-              handleProtectedRoute("/myfav");
-            }}
-            className="hover:text-green-600 transition cursor-pointer"
-          >
-            Favorites
+          <li>
+            <span
+              onClick={() => handleProtectedRoute("/myfav")}
+              className={`transition cursor-pointer ${
+                window.location.pathname === "/myfav"
+                  ? "text-green-600 font-semibold"
+                  : "text-gray-800"
+              }`}
+            >
+              Favorites
+            </span>
           </li>
-          <li onClick={checkLogin}>
-            <a className="hover:text-green-600 transition cursor-pointer">
-              {isLoggedIn ? "Logout" : "Login"}
-            </a>
+          <li onClick={handleLoginClick}>
+            <span className="hover:text-green-600 transition cursor-pointer">
+              {isLoggedIn ? `Logout (${user?.email || ""})` : "Login"}
+            </span>
           </li>
         </ul>
+
         {isOpen && (
           <Modal onClose={() => setIsOpen(false)}>
             <InputForm
