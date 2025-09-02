@@ -5,6 +5,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const connectDb = require("./config/connectionDb");
 const path = require("path");
+const chatbotRoutes = require("./routes/chatbot");
 connectDb();
 app.use(cors());
 
@@ -16,7 +17,7 @@ app.use(
 
 app.use("/", require("./routes/user"));
 app.use("/recipe", require("./routes/recipe"));
-
+app.use("/api", chatbotRoutes);
 app.listen(PORT, () => {
   console.log(`App is listening on port ${PORT}`);
 });

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 import InputForm from "./InputForm";
 import { NavLink, useNavigate } from "react-router-dom";
+
 function Navbar({ isLoggedIn, setIsLoggedIn }) {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -29,13 +30,33 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
     }
   };
 
+  // ✅ Extract first part of email & capitalize first letter
+  const getDisplayName = (email) => {
+    if (!email) return "";
+    const namePart = email.split("@")[0];
+    return namePart.charAt(0).toUpperCase() + namePart.slice(1);
+  };
+
   return (
     <nav className="bg-green-200 border-b border-green-800 shadow-sm">
       <div className="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="/" className="text-2xl font-semibold text-gray-900">
-          Food Blog
+          FoodShare Web
         </a>
         <ul className="flex space-x-6 text-sm font-medium items-center">
+          <li>
+            <span
+              onClick={() => navigate("/chatbot")}
+              className={`transition cursor-pointer ${
+                window.location.pathname === "/chatbot"
+                  ? "text-green-600 font-semibold"
+                  : "text-gray-800"
+              }`}
+            >
+              Chatbot
+            </span>
+          </li>
+
           <li>
             <NavLink
               to="/"
@@ -74,7 +95,7 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
           </li>
           <li onClick={handleLoginClick}>
             <span className="hover:text-green-600 transition cursor-pointer">
-              {isLoggedIn ? `Logout (${user?.email || ""})` : "Login"}
+              {isLoggedIn ? `Logout (${getDisplayName(user?.email)})` : "Login"}
             </span>
           </li>
         </ul>

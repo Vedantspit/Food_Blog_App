@@ -18,7 +18,7 @@ router.get("/", getRecipes);
 router.get("/:id", getRecipe);
 router.post("/", upload.single("file"), verifyToken, addRecipe);
 
-router.put("/:id", editRecipe);
+router.put("/:id", upload.single("file"), editRecipe);
 router.delete("/:id", deleteRecipe);
 
 module.exports = router;

@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainNavigation from "./components/MainNavigation";
 import axios from "axios";
 import AddFoodRecipe from "./pages/AddFoodRecipe";
+import EditRecipe from "./pages/EditRecipe";
+import Chatbot from "./pages/Chatbot";
 
 const getAllRecipes = async () => {
   let allRecipes = [];
@@ -39,8 +41,16 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/chatbot",
+        element: <Chatbot />,
+      },
+      {
         path: "/addRecipe",
         element: <AddFoodRecipe />,
+      },
+      {
+        path: "/editRecipe/:id",
+        element: <EditRecipe />,
       },
     ],
   },

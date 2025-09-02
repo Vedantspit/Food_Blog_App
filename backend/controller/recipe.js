@@ -57,8 +57,13 @@ const editRecipe = async (req, res) => {
   const { title, ingredients, instructions, time } = req.body;
   let recipe = await Recipes.findById(req.params.id);
   try {
+    let coverImg = req.file?.filename ? req.file.filename : recipe.coverImage;
     if (recipe) {
-      await Recipes.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      await Recipes.findByIdAndUpdate(
+        req.params.id,
+        { ...req.body, coverImage: coverImg },
+        { new: true }
+      );
       res.json({ title, ingredients, instructions, time });
     }
   } catch (err) {
@@ -68,8 +73,13 @@ const editRecipe = async (req, res) => {
   }
 };
 
-const deleteRecipe = (req, res) => {
-  res.json({ message: "Hello" });
+const deleteRecipe = async (req, res) => {
+  try {
+    await Recipes.deleteOne({ _id: req.params.id });
+    res.json({ status: "ok" });
+  } catch (Err) {
+    res.status(400).json({ message: "error" });
+  }
 };
 
 module.exports = {
