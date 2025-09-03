@@ -1,4 +1,4 @@
-# 🥗 Food Recipe Blog – MERN Stack App
+# 🥗 FoodShare Web – MERN Stack App
 
 A full-stack **Food Recipe Sharing Website** where users can register, log in securely, share their favorite food recipes, manage their own recipes, and interact with a **chefbot AI assistant**.
 
@@ -6,7 +6,7 @@ A full-stack **Food Recipe Sharing Website** where users can register, log in se
 
 ## 🌐 Hosted Link
 
-Check out the live app here: [Food Recipe Blog Live](https://foodblog-frontend.vercel.app/)
+Check out the live app here: <a href="https://foodblog-frontend.vercel.app/" target="_blank">FoodShare Web Live</a>
 
 ---
 
@@ -107,6 +107,7 @@ npm run dev
 2. JWT token is returned and stored in `localStorage`.
 3. Token is sent in headers for protected API routes.
 4. Authenticated users can:
+
    - Add recipes to **My Recipes**
    - **Favorite recipes** and view them
    - Interact with **Chefbot AI assistant** for recipe suggestions
@@ -134,5 +135,5 @@ npm run dev
 
 **Vedant Deshmukh**
 
-- GitHub: [@Vedantspit](https://github.com/Vedantspit)
-- LinkedIn: [Vedant Deshmukh](https://www.linkedin.com/in/vedant-deshmukh-47b1a122a/)
+- GitHub: <a href="https://github.com/Vedantspit" target="_blank">@Vedantspit</a>
+- LinkedIn: <a href="https://www.linkedin.com/in/vedant-deshmukh-47b1a122a/" target="_blank">Vedant Deshmukh</a>
