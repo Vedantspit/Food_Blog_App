@@ -23,7 +23,7 @@ function Home() {
       <section className="flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-24 py-20 bg-green-50">
         <div className="max-w-xl text-center md:text-left space-y-6">
           <h1 className="text-5xl font-extrabold text-green-700">
-            Food Recipe
+            FoodShare Web
           </h1>
           <p className="text-lg text-gray-700 leading-relaxed">
             Discover delicious recipes for every taste and occasion. From quick

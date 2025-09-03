@@ -4,6 +4,12 @@ A full-stack **Food Recipe Sharing Website** where users can register, log in se
 
 ---
 
+## 🌐 Hosted Link
+
+Check out the live app here: [Food Recipe Blog Live](https://your-deployed-link.com)
+
+---
+
 ## 🚀 Features
 
 - 🔐 **JWT Authentication** – Secure login and signup
@@ -107,27 +113,20 @@ npm run dev
 
 ---
 
-## 🌐 Hosted Link
-
-Check out the live app here: [Food Recipe Blog Live](https://your-deployed-link.com)
-
----
-
 ## 🖼️ UI Snapshots
 
 **Home Page with Recipe List**
 
-![Home Page1](image.png)
-![Home Page2](image-1.png)
+![Home Page1](home1.png)
+![Home Page2](home2.png)
 
-**Favorites & My Recipes**
+**Add Recipe**
 
-![Favorites Page](image-2.png)
-![My Recipes Page](image-3.png)
+![Add Recipe](add recipe.png)
 
 **AI Chatbot Assistant**
 
-![Chatbot](image-4.png)
+![Chatbot](llm.png)
 
 ---
 
