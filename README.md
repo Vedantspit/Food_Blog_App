@@ -6,7 +6,7 @@ A full-stack **Food Recipe Sharing Website** where users can register, log in se
 
 ## 🌐 Hosted Link
 
-Check out the live app here: [Food Recipe Blog Live](https://your-deployed-link.com)
+Check out the live app here: [Food Recipe Blog Live](<[text](https://foodblog-frontend.vercel.app/)>)
 
 ---
 
@@ -122,7 +122,7 @@ npm run dev
 
 **Add Recipe**
 
-![Add Recipe](add recipe.png)
+![Add Recipe](addrecipe.png)
 
 **AI Chatbot Assistant**
 
