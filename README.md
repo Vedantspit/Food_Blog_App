@@ -12,13 +12,13 @@ Check out the live app here: <a href="https://foodblog-frontend.vercel.app/" tar
 
 ## 🚀 Features
 
-- 🔐 **JWT Authentication** – Secure login and signup
 - 📝 **Recipe Management** – Create, edit, view recipes
 - ❤️ **Favorites & My Recipes** – Save your favorite recipes and manage your own recipes
 - 🤖 **AI Chatbot Assistant** – Ask any recipe-related questions or get cooking suggestions
+- 🔐 **JWT Authentication** – Secure login and signup
+- 🛡️ **Protected Routes** – Token-based access control
 - 🎨 **Responsive UI** – Built with Tailwind CSS, mobile & desktop compatible
 - 🧠 **Modular Frontend** – Component-based React architecture
-- 🛡️ **Protected Routes** – Token-based access control
 
 ---
 
@@ -98,19 +98,6 @@ npm run dev
 ```
 
 > Make sure your frontend is configured to call the backend API at `http://localhost:5000`.
-
----
-
-## 🔐 Authentication & User Flow
-
-1. Users sign up or log in via a modal form.
-2. JWT token is returned and stored in `localStorage`.
-3. Token is sent in headers for protected API routes.
-4. Authenticated users can:
-
-   - Add recipes to **My Recipes**
-   - **Favorite recipes** and view them
-   - Interact with **Chefbot AI assistant** for recipe suggestions
 
 ---
 
