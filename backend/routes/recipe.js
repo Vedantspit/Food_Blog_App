@@ -8,7 +8,6 @@ const {
   upload,
 } = require("../controller/recipe");
 const verifyToken = require("../middleware/auth");
-// const
 
 const router = express.Router();
 // router.get("/", (req, res) => {

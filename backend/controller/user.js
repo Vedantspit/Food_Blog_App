@@ -2,6 +2,53 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+// Add to favorites
+const addFavorite = async (req, res) => {
+  try {
+    const { userId, recipeId } = req.params;
+
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { $addToSet: { favorites: recipeId } }, // add only if not exists
+      { new: true }
+    ).populate("favorites");
+
+    res.json(user.favorites);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to add to favorites" });
+  }
+};
+
+// Remove from favorites
+const removeFavorite = async (req, res) => {
+  try {
+    const { userId, recipeId } = req.params;
+
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { $pull: { favorites: recipeId } }, // remove if exists
+      { new: true }
+    ).populate("favorites");
+
+    res.json(user.favorites);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to remove from favorites" });
+  }
+};
+
+// Get all favorites
+const getFavorites = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const user = await User.findById(userId).populate("favorites");
+
+    res.json(user.favorites);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch favorites" });
+  }
+};
+
 const userSignUp = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -49,4 +96,11 @@ const getUser = async (req, res) => {
   }
 };
 
-module.exports = { userSignUp, userLogin, getUser };
+module.exports = {
+  userSignUp,
+  userLogin,
+  getUser,
+  addFavorite,
+  removeFavorite,
+  getFavorites,
+};

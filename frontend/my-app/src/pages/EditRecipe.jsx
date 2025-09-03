@@ -14,15 +14,17 @@ function EditRecipe() {
   const { id } = useParams();
   useEffect(() => {
     const getData = async () => {
-      await axios.get(`http://localhost:5000/recipe/${id}`).then((response) => {
-        let res = response.data;
-        setRecipeData({
-          title: res.title,
-          ingredients: res.ingredients.join(","),
-          instructions: res.instructions,
-          time: res.time,
+      await axios
+        .get(`${import.meta.env.VITE_API_URL}/recipe/${id}`)
+        .then((response) => {
+          let res = response.data;
+          setRecipeData({
+            title: res.title,
+            ingredients: res.ingredients.join(","),
+            instructions: res.instructions,
+            time: res.time,
+          });
         });
-      });
     };
     getData();
   }, []);
@@ -59,12 +61,16 @@ function EditRecipe() {
     }
 
     try {
-      await axios.put(`http://localhost:5000/recipe/${id}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      });
+      await axios.put(
+        `${import.meta.env.VITE_API_URL}/recipe/${id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      );
       navigate("/");
     } catch (error) {
       console.error("Error uploading recipe:", error);

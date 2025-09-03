@@ -6,10 +6,10 @@ import axios from "axios";
 import AddFoodRecipe from "./pages/AddFoodRecipe";
 import EditRecipe from "./pages/EditRecipe";
 import Chatbot from "./pages/Chatbot";
-
+import MyFavorites from "./pages/MyFavorites";
 const getAllRecipes = async () => {
   let allRecipes = [];
-  await axios.get("http://localhost:5000/recipe").then((res) => {
+  await axios.get(`${import.meta.env.VITE_API_URL}/recipe`).then((res) => {
     allRecipes = res.data;
   });
 
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/myfav",
-        element: <Home />,
+        element: <MyFavorites />,
       },
       {
         path: "/chatbot",

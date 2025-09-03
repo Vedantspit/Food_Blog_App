@@ -28,7 +28,7 @@ export default function AddFoodRecipe() {
     formData.append("file", recipeData.file); // must match multer fieldname
 
     try {
-      await axios.post("http://localhost:5000/recipe", formData, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/recipe`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: "Bearer " + localStorage.getItem("token"),

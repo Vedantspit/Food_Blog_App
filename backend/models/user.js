@@ -11,6 +11,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    favorites: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Recipes", // make sure you have a Recipe model
+      },
+    ],
   },
   { timestamps: true }
 );
