@@ -1,6 +1,6 @@
 # 🥗 Food Recipe Blog – MERN Stack App
 
-A full-stack **Food Recipe Sharing Website** where users can register, log in securely, and share their favorite food recipes with the community.
+A full-stack **Food Recipe Sharing Website** where users can register, log in securely, share their favorite food recipes, manage their own recipes, and interact with a **chefbot AI assistant**.
 
 ---
 
@@ -8,7 +8,9 @@ A full-stack **Food Recipe Sharing Website** where users can register, log in se
 
 - 🔐 **JWT Authentication** – Secure login and signup
 - 📝 **Recipe Management** – Create, edit, view recipes
-- 🎨 **Responsive UI** – Built with Tailwind CSS
+- ❤️ **Favorites & My Recipes** – Save your favorite recipes and manage your own recipes
+- 🤖 **AI Chatbot Assistant** – Ask any recipe-related questions or get cooking suggestions
+- 🎨 **Responsive UI** – Built with Tailwind CSS, mobile & desktop compatible
 - 🧠 **Modular Frontend** – Component-based React architecture
 - 🛡️ **Protected Routes** – Token-based access control
 
@@ -22,6 +24,7 @@ A full-stack **Food Recipe Sharing Website** where users can register, log in se
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB (via Mongoose)
 - **Authentication:** JWT (JSON Web Tokens)
+- **AI Assistant:** OpenAI API for recipe chat functionality
 
 ---
 
@@ -71,6 +74,7 @@ Create a `.env` file inside the `backend/` directory:
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
+OPENAI_API_KEY=your_openai_api_key
 ```
 
 Start the backend server:
@@ -91,12 +95,21 @@ npm run dev
 
 ---
 
-## 🔐 Authentication Flow
+## 🔐 Authentication & User Flow
 
 1. Users sign up or log in via a modal form.
 2. JWT token is returned and stored in `localStorage`.
 3. Token is sent in headers for protected API routes.
-4. Only authenticated users can add or edit recipes.
+4. Authenticated users can:
+   - Add recipes to **My Recipes**
+   - **Favorite recipes** and view them
+   - Interact with **Chefbot AI assistant** for recipe suggestions
+
+---
+
+## 🌐 Hosted Link
+
+Check out the live app here: [Food Recipe Blog Live](https://your-deployed-link.com)
 
 ---
 
@@ -106,6 +119,15 @@ npm run dev
 
 ![Home Page1](image.png)
 ![Home Page2](image-1.png)
+
+**Favorites & My Recipes**
+
+![Favorites Page](image-2.png)
+![My Recipes Page](image-3.png)
+
+**AI Chatbot Assistant**
+
+![Chatbot](image-4.png)
 
 ---
 
