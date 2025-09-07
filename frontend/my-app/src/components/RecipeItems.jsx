@@ -24,8 +24,20 @@ export default function RecipeItems() {
   const path = window.location.pathname === "/myrecipe"; // true if on /myrecipe
 
   const onDelete = async (id) => {
-    await axios.delete(`${import.meta.env.VITE_API_URL}/recipe/${id}`);
-    setAllRecipe((prevRecipe) => prevRecipe.filter((rec) => rec._id !== id));
+    const url = `${import.meta.env.VITE_API_URL}/recipe/${id}`;
+    console.log("Delete URL:", url, "with id:", id);
+
+    try {
+      await axios.delete(url, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"), // 🔹 don't forget this if backend needs token
+        },
+      });
+
+      setAllRecipe((prevRecipe) => prevRecipe.filter((rec) => rec._id !== id));
+    } catch (error) {
+      console.error("Error deleting recipe:", error.response?.data || error);
+    }
   };
 
   // Fetch user favorites when recipes load
@@ -119,11 +131,9 @@ export default function RecipeItems() {
           >
             <div className="relative">
               <img
-                src={`${import.meta.env.VITE_API_URL}/public/images/${
-                  item.coverImage
-                }`}
+                src={item.coverImage}
                 alt={item.title}
-                className="w-full aspect-[3/2] object-cover rounded-lg mb-4"
+                className="w-full h-70 object-cover rounded-lg"
               />
 
               {path ? (

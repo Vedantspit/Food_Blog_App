@@ -121,11 +121,9 @@ export default function MyFavorites() {
           >
             <div className="relative">
               <img
-                src={`${import.meta.env.VITE_API_URL}/public/images/${
-                  item.coverImage
-                }`}
+                src={item.coverImage}
                 alt={item.title}
-                className="w-full aspect-[3/2] object-cover rounded-lg mb-4"
+                className="w-full h-70 object-cover rounded-lg"
               />
 
               {/* Heart button */}

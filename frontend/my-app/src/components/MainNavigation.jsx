@@ -2,7 +2,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 
 export default function MainNavigation() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,7 +15,9 @@ export default function MainNavigation() {
   return (
     <>
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-      <Outlet context={{ isLoggedIn, setIsLoggedIn }} />
+      <Suspense fallback={<div>Loading page...</div>}>
+        <Outlet context={{ isLoggedIn, setIsLoggedIn }} />
+      </Suspense>
       <Footer />
     </>
   );

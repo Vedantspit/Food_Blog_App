@@ -10,14 +10,13 @@ const {
 const verifyToken = require("../middleware/auth");
 
 const router = express.Router();
-// router.get("/", (req, res) => {
-//   res.send("All recipes");
-// });
+
 router.get("/", getRecipes);
 router.get("/:id", getRecipe);
-router.post("/", upload.single("file"), verifyToken, addRecipe);
 
-router.put("/:id", upload.single("file"), editRecipe);
-router.delete("/:id", deleteRecipe);
+// ✅ auth first, then file upload, then controller
+router.post("/", verifyToken, upload.single("file"), addRecipe);
+router.put("/:id", verifyToken, upload.single("file"), editRecipe);
+router.delete("/:id", verifyToken, deleteRecipe);
 
 module.exports = router;
