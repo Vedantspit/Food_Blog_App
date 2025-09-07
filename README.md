@@ -6,7 +6,7 @@ A full-stack **Food Recipe Sharing Website** where users can register, log in se
 
 ## 🌐 Hosted Link
 
-Check out the live app here: <a href="https://foodblog-frontend.vercel.app/" target="_blank">FoodShare Web Live</a>
+Check out the live app here: <a href="https://foodshare-blog.vercel.app/" target="_blank">FoodShare Web Live</a>
 
 ---
 
