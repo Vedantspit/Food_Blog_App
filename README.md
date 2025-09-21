@@ -19,6 +19,7 @@ Check out the live app here: <a href="https://recipeblog-share.vercel.app/" targ
 - 🛡️ **Protected Routes** – Token-based access control
 - 🎨 **Responsive UI** – Built with Tailwind CSS, mobile & desktop compatible
 - 🧠 **Modular Frontend** – Component-based React architecture
+- 🐳 **Dockerized Setup** – Run frontend and backend with Docker & Docker Compose
 
 ---
 
@@ -31,6 +32,7 @@ Check out the live app here: <a href="https://recipeblog-share.vercel.app/" targ
 - **Database:** MongoDB (via Mongoose)
 - **Authentication:** JWT (JSON Web Tokens)
 - **AI Assistant:** OpenAI API for recipe chat functionality
+- **Containerization:** Docker, Docker Compose
 
 ---
 
@@ -42,6 +44,7 @@ food-blog/
 │   ├── models/
 │   ├── routes/
 │   ├── controllers/
+│   └── Dockerfile
 │   └── server.js
 │
 ├── frontend/
@@ -49,8 +52,10 @@ food-blog/
 │   │   ├── components/
 │   │   ├── pages/
 │   │   └── App.jsx
+│   └── Dockerfile
 │   └── vite.config.js
 │
+├── docker-compose.yml
 ├── .env
 ├── README.md
 └── package.json
@@ -67,7 +72,24 @@ git clone https://github.com/your-username/food-blog.git
 cd food-blog
 ```
 
-### 2. Backend Setup
+### 2. Dockerized Setup (Recommended)
+
+Make sure you have Docker and Docker Compose installed.
+
+Run the entire stack (frontend + backend + MongoDB) using:
+
+```bash
+docker-compose up --build
+```
+
+This will:
+- Build frontend and backend Docker images
+- Start the containers and link them together
+- Run the backend on port 5000 and frontend on port 5173
+
+> Note: Ensure your `.env` file exists in the root or backend directory as configured in your Dockerfile.
+
+### 3. Manual Backend Setup (Optional)
 
 ```bash
 cd backend
@@ -89,7 +111,7 @@ Start the backend server:
 npm run dev
 ```
 
-### 3. Frontend Setup
+### 4. Manual Frontend Setup (Optional)
 
 ```bash
 cd frontend
@@ -124,3 +146,4 @@ npm run dev
 
 - GitHub: <a href="https://github.com/Vedantspit" target="_blank">@Vedantspit</a>
 - LinkedIn: <a href="https://www.linkedin.com/in/vedant-deshmukh-47b1a122a/" target="_blank">Vedant Deshmukh</a>
+
