@@ -1,4 +1,4 @@
-# 🥗 FoodShare Web – MERN Stack App
+# 🥗 FoodShare Web – Recipe Sharing App
 
 A full-stack **Food Recipe Sharing Website** where users can register, log in securely, share their favorite food recipes, manage their own recipes, and interact with a **chefbot AI assistant**.
 
