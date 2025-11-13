@@ -1,25 +1,23 @@
-# 🥗 FoodShare Web – Recipe Sharing App
+# FoodShare Web – Recipe Sharing App
 
-A full-stack **Food Recipe Sharing Website** where users can register, log in securely, share their favorite food recipes, manage their own recipes, and interact with a **chefbot AI assistant**.
-
----
-
-##  Hosted Link
-
-Check out the live app here: <a href="https://recipeblog-share.vercel.app/" target="_blank">FoodShare Web Live</a>
+A full-stack **Food Recipe Sharing Website** where users can register, share their favorite recipes, manage their own dishes, and interact with an **AI-powered chefbot assistant**.
 
 ---
 
-##  Features
+## Live Demo
 
--  **Recipe Management** – Create, edit, view recipes
--  **Favorites & My Recipes** – Save your favorite recipes and manage your own recipes
--  **AI Chatbot Assistant** – Ask any recipe-related questions or get cooking suggestions
--  **JWT Authentication** – Secure login and signup
--  **Protected Routes** – Token-based access control
--  **Responsive UI** – Built with Tailwind CSS, mobile & desktop compatible
--  **Modular Frontend** – Component-based React architecture
--  **Dockerized Setup** – Run frontend and backend with Docker & Docker Compose
+**Check it out here:** [FoodShare Web Live](https://recipeblog-share.vercel.app/)
+
+---
+
+## Features
+
+- **Recipe Management:** Create, edit, and browse recipes easily
+- **Favorites & My Recipes:** Save your favorite dishes and manage your personal recipes
+- **AI ChefBot Assistant:** Get recipe suggestions or cooking help powered by OpenAI API
+- **User Authentication:** Secure signup and login with JWT-based access
+- **Responsive Design:** Built with Tailwind CSS for mobile and desktop
+- **Dockerized Setup:** Run both frontend and backend using Docker Compose
 
 ---
 
@@ -27,14 +25,14 @@ Check out the live app here: <a href="https://recipeblog-share.vercel.app/" targ
 
 - **Frontend:** React, Axios, Tailwind CSS
 - **Backend:** Node.js, Express.js
-- **Database:** MongoDB (via Mongoose)
-- **Authentication:** JWT (JSON Web Tokens)
-- **AI Assistant:** OpenAI API for recipe chat functionality
-- **Containerization:** Docker, Docker Compose
+- **Database:** MongoDB (Mongoose ORM)
+- **AI Integration:** OpenAI API for chatbot assistant
+- **Authentication:** JWT-based token authentication
+- **Containerization:** Docker & Docker Compose
 
 ---
 
-##  Project Structure
+## Project Structure
 
 ```
 food-blog/
@@ -42,7 +40,7 @@ food-blog/
 │   ├── models/
 │   ├── routes/
 │   ├── controllers/
-│   └── Dockerfile
+│   ├── Dockerfile
 │   └── server.js
 │
 ├── frontend/
@@ -50,7 +48,7 @@ food-blog/
 │   │   ├── components/
 │   │   ├── pages/
 │   │   └── App.jsx
-│   └── Dockerfile
+│   ├── Dockerfile
 │   └── vite.config.js
 │
 ├── docker-compose.yml
@@ -61,7 +59,7 @@ food-blog/
 
 ---
 
-##  Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 
@@ -72,20 +70,20 @@ cd food-blog
 
 ### 2. Dockerized Setup (Recommended)
 
-Make sure you have Docker and Docker Compose installed.
-
-Run the entire stack (frontend + backend + MongoDB) using:
+Make sure you have **Docker** and **Docker Compose** installed.  
+Run the stack (frontend + backend + MongoDB) using:
 
 ```bash
 docker-compose up --build
 ```
 
 This will:
-- Build frontend and backend Docker images
-- Start the containers and link them together
-- Run the backend on port 5000 and frontend on port 5173
 
-> Note: Ensure your `.env` file exists in the root or backend directory as configured in your Dockerfile.
+- Build frontend and backend images
+- Start the containers and link them
+- Run backend on port **5000** and frontend on **5173**
+
+> Ensure your `.env` file exists in the root or `backend/` directory as configured.
 
 ### 3. Manual Backend Setup (Optional)
 
@@ -94,16 +92,16 @@ cd backend
 npm install
 ```
 
-Create a `.env` file inside the `backend/` directory:
+Create a `.env` file inside `backend/`:
 
-```env
+```
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 OPENAI_API_KEY=your_openai_api_key
 ```
 
-Start the backend server:
+Run the backend server:
 
 ```bash
 npm run dev
@@ -117,29 +115,25 @@ npm install
 npm run dev
 ```
 
-> Make sure your frontend is configured to call the backend API at `http://localhost:5000`.
+> Make sure the frontend API calls point to `http://localhost:5000`.
 
 ---
 
-##  UI Snapshots
+## UI Snapshots
 
-**Home Page with Recipe List**
-
-![Home Page1](home1.png)
+**Home Page**  
+![Home Page1](home1.png)  
 ![Home Page2](home2.png)
 
-**Add Recipe**
-
+**Add Recipe Page**  
 ![Add Recipe](addrecipe.png)
 
-**AI Chatbot Assistant**
-
+**AI Chatbot Assistant**  
 ![Chatbot](llm.png)
 
 ---
 
 ## Author
 
-**Vedant Deshmukh**
-- LinkedIn: <a href="https://www.linkedin.com/in/vedant-deshmukh-47b1a122a/" target="_blank">Vedant Deshmukh</a>
-
+**Vedant Deshmukh**  
+🔗 [LinkedIn Profile](https://www.linkedin.com/in/vedant-deshmukh-47b1a122a/)
