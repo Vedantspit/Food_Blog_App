@@ -136,4 +136,4 @@ npm run dev
 ## Author
 
 **Vedant Deshmukh**  
-🔗 [LinkedIn Profile](https://www.linkedin.com/in/vedant-deshmukh-47b1a122a/)
+[LinkedIn Profile](https://www.linkedin.com/in/vedant-deshmukh-47b1a122a/)
