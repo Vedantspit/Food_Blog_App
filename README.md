@@ -4,28 +4,26 @@ A full-stack **Food Recipe Sharing Website** where users can register, log in se
 
 ---
 
-## 🌐 Hosted Link
+##  Hosted Link
 
 Check out the live app here: <a href="https://recipeblog-share.vercel.app/" target="_blank">FoodShare Web Live</a>
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 📝 **Recipe Management** – Create, edit, view recipes
-- ❤️ **Favorites & My Recipes** – Save your favorite recipes and manage your own recipes
-- 🤖 **AI Chatbot Assistant** – Ask any recipe-related questions or get cooking suggestions
-- 🔐 **JWT Authentication** – Secure login and signup
-- 🛡️ **Protected Routes** – Token-based access control
-- 🎨 **Responsive UI** – Built with Tailwind CSS, mobile & desktop compatible
-- 🧠 **Modular Frontend** – Component-based React architecture
-- 🐳 **Dockerized Setup** – Run frontend and backend with Docker & Docker Compose
+-  **Recipe Management** – Create, edit, view recipes
+-  **Favorites & My Recipes** – Save your favorite recipes and manage your own recipes
+-  **AI Chatbot Assistant** – Ask any recipe-related questions or get cooking suggestions
+-  **JWT Authentication** – Secure login and signup
+-  **Protected Routes** – Token-based access control
+-  **Responsive UI** – Built with Tailwind CSS, mobile & desktop compatible
+-  **Modular Frontend** – Component-based React architecture
+-  **Dockerized Setup** – Run frontend and backend with Docker & Docker Compose
 
 ---
 
-## 🧱 Tech Stack
-
-**MERN Stack:**
+## Tech Stack
 
 - **Frontend:** React, Axios, Tailwind CSS
 - **Backend:** Node.js, Express.js
@@ -36,7 +34,7 @@ Check out the live app here: <a href="https://recipeblog-share.vercel.app/" targ
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 food-blog/
@@ -63,7 +61,7 @@ food-blog/
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
 ### 1. Clone the Repository
 
@@ -123,7 +121,7 @@ npm run dev
 
 ---
 
-## 🖼️ UI Snapshots
+##  UI Snapshots
 
 **Home Page with Recipe List**
 
@@ -140,10 +138,8 @@ npm run dev
 
 ---
 
-## 🧑‍💻 Author
+## Author
 
 **Vedant Deshmukh**
-
-- GitHub: <a href="https://github.com/Vedantspit" target="_blank">@Vedantspit</a>
 - LinkedIn: <a href="https://www.linkedin.com/in/vedant-deshmukh-47b1a122a/" target="_blank">Vedant Deshmukh</a>
 
