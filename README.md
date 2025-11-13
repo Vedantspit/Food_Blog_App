@@ -131,9 +131,3 @@ npm run dev
 **AI Chatbot Assistant**  
 ![Chatbot](llm.png)
 
----
-
-## Author
-
-**Vedant Deshmukh**  
-[LinkedIn Profile](https://www.linkedin.com/in/vedant-deshmukh-47b1a122a/)
